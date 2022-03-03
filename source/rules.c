@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 18:55:13 by anajmi            #+#    #+#             */
-/*   Updated: 2022/02/28 14:16:04 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/01 18:09:56 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,58 +32,64 @@ rrb (reverse rotate b): Shift down all elements of stack b by 1. The last elemen
 void	action(char *str)
 {
 	if (!ft_strncmp(str, "sa", 2))
-		printf("sa (swap a)\n");
+		printf("sa\n");
 	else if (!ft_strncmp(str, "sb", 2))
-		printf("sb (swap b)\n");
+		printf("sb\n");
 	else if (!ft_strncmp(str, "ss", 2))
-		printf("ss (swap ab)\n");
+		printf("ss\n");
 	else if (!ft_strncmp(str, "pa", 2))
-		printf("pa (push a)\n");
+		printf("pa\n");
 	else if (!ft_strncmp(str, "pb", 2))
-		printf("pb (push b)\n");
+		printf("pb\n");
 	else if (!ft_strncmp(str, "ra", 2))
-		printf("ra (rotate a)\n");
+		printf("ra\n");
 	else if (!ft_strncmp(str, "rb", 2))
-		printf("rb (rotate b)\n");
+		printf("rb\n");
 	else if (!ft_strncmp(str, "rra", 3))
-		printf("rra (reverse rotate a)\n");
+		printf("rra\n");
 	else if (!ft_strncmp(str, "rrb", 3))
-		printf("rrb (reverse rotate b)\n");
+		printf("rrb\n");
 	else if (!ft_strncmp(str, "rrr", 3))
-		printf("rrr (reverse rotate ab)\n");
+		printf("rrr\n");
 	else if (!ft_strncmp(str, "rr", 2))
-		printf("rr (rotate ab)\n");
+		printf("rr\n");
 }
 
-void	sa(t_stack *stack)
+int	sa(t_stack *stack)
 {
 	if (stack->size_a > 1)
 	{
 		swap(&stack->a[stack->last_a], &stack->a[stack->last_a - 1]);
 		action("sa");
+		return (1);
 	}
+	return (0);
 }
 
-void	sb(t_stack *stack)
+int	sb(t_stack *stack)
 {
 	if (stack->size_b > 1)
 	{
 		swap(&stack->b[stack->last_b], &stack->b[stack->last_b - 1]);
 		action("sb");
+		return (1);
 	}
+	return (0);
 }
 
-void	ss(t_stack *stack)
+int	ss(t_stack *stack)
 {
 	if (stack->size_a > 1 && stack->size_b > 1)
 	{
 		swap(&stack->a[stack->last_a], &stack->a[stack->last_a - 1]);
 		swap(&stack->b[stack->last_b], &stack->b[stack->last_b - 1]);
 		action("ss");
+		return (1);
 	}
+	return (0);
 }
 
-void	pa(t_stack *stack)
+int	pa(t_stack *stack)
 {
 	if (0 < stack->size_b && stack->size_b <= stack->capacity)
 	{
@@ -93,10 +99,12 @@ void	pa(t_stack *stack)
 		stack->last_a++;
 		stack->last_b--;
 		action("pa");
+		return (1);
 	}
+	return (0);
 }
 
-void	pb(t_stack *stack)
+int	pb(t_stack *stack)
 {
 	if (0 < stack->size_a && stack->size_a <= stack->capacity)
 	{
@@ -106,10 +114,12 @@ void	pb(t_stack *stack)
 		stack->last_b++;
 		stack->last_a--;
 		action("pb");
+		return (1);
 	}
+	return (0);
 }
 
-void	ra(t_stack *stack)
+int	ra(t_stack *stack)
 {
 	int	i;
 	int	j;
@@ -125,10 +135,12 @@ void	ra(t_stack *stack)
 			j++;
 		}
 		action("ra");
+		return (1);
 	}
+	return (0);
 }
 
-void	rb(t_stack *stack)
+int	rb(t_stack *stack)
 {
 	int	i;
 	int	j;
@@ -144,10 +156,12 @@ void	rb(t_stack *stack)
 			j++;
 		}
 		action("rb\n");
+		return (1);
 	}
+	return (0);
 }
 
-void	rr(t_stack *stack)
+int	rr(t_stack *stack)
 {
 	int	i;
 	int	j;
@@ -171,10 +185,12 @@ void	rr(t_stack *stack)
 			j++;
 		}
 		action("rr");
+		return (1);
 	}
+	return (0);
 }
 
-void	rra(t_stack *stack)
+int	rra(t_stack *stack)
 {
 	int	i;
 	int	j;
@@ -190,10 +206,12 @@ void	rra(t_stack *stack)
 			j--;
 		}
 		action("rra");
+		return (1);
 	}
+	return (0);
 }
 
-void	rrb(t_stack *stack)
+int	rrb(t_stack *stack)
 {
 	int	i;
 	int	j;
@@ -209,10 +227,12 @@ void	rrb(t_stack *stack)
 			j--;
 		}
 		action("rrb");
+		return (1);
 	}
+	return (0);
 }
 
-void	rrr(t_stack *stack)
+int	rrr(t_stack *stack)
 {
 	int	i;
 	int	j;
@@ -236,5 +256,7 @@ void	rrr(t_stack *stack)
 			j--;
 		}
 		action("rrr");
+		return (1);
 	}
+	return (0);
 }
