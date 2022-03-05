@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 16:43:05 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/02 16:27:26 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/05 22:03:31 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	main(int ac, char *av[])
 	create_stack(stack, ac);
 	fill_in(stack, ac, av);
 
-	show(stack, 0);
+	// show(stack, 0);
 	sort(stack);
 	show(stack, 0);
 	// show(stack, 0);
@@ -71,8 +71,7 @@ int	main(int ac, char *av[])
 	// printf("a_isortinv ===> %d\n", a_isortinv(stack));
 	// printf("b_isort ===> %d\n", b_isort(stack));
 	// printf("b_isortinv ===> %d\n", b_isortinv(stack));
-	
-	// system("leaks a.out");
+
 	// sa(stack);
 	// sb(stack);
 	// ss(stack);
@@ -85,5 +84,7 @@ int	main(int ac, char *av[])
 	// rrb(stack);
 	// rrr(stack);
 	// show(stack);
+	
+	// system("leaks a.out");
 	return (0);
 }

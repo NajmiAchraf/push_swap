@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 21:22:26 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/03 18:17:35 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/05 21:58:36 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct	s_stack
 	int	last_b;
 	int *a;
 	int	*b;
+	int	*sorted;
 }				t_stack;
 
 void	create_stack(t_stack *stack, int capacity);
@@ -60,7 +61,7 @@ int		swap_b(t_stack *stack);
 int		swap_ab(t_stack *stack);
 void	swaping(t_stack *stack);
 
-void	pushing(t_stack *stack);
+void	pp(t_stack *stack);
 
 int		rotate_a(t_stack *stack);
 int		rotate_b(t_stack *stack);
