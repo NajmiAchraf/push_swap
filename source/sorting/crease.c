@@ -6,11 +6,11 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 16:23:05 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/02 16:23:42 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/07 16:30:39 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
 void	increase2b(t_stack *stack)
 {

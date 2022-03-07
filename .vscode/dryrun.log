@@ -6,6 +6,5 @@ make: Leaving directory `/Users/anajmi/Documents/42cursus/Push_Swap_Project/Push
  
 make: Entering directory `/Users/anajmi/Documents/42cursus/Push_Swap_Project/Push_swap'
 cc     push_swap.c   -o push_swap
- 
 make: Leaving directory `/Users/anajmi/Documents/42cursus/Push_Swap_Project/Push_swap'
  

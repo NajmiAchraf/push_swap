@@ -6,11 +6,11 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 18:40:10 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/02 13:41:20 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/07 16:30:51 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
 int	a_isortinv(t_stack *stack)
 {

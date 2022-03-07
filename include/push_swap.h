@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 21:22:26 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/05 21:58:36 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/07 19:14:38 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ typedef struct	s_stack
 {
 	int	msect;
 	int	lsect;
-	int	*limit;
+	int	*maxlimit;
+	int	*lowlimit;
 	int capacity;
 	int	size_a;
 	int	size_b;
@@ -42,7 +43,7 @@ int		a_isort(t_stack *stack);
 int		b_isortinv(t_stack *stack);
 int		b_isort(t_stack *stack);
 
-void	action(char *str);
+void	action(t_stack *stack, char *str);
 void	swap(int *n1, int *n2);
 int		sa(t_stack *stack);
 int		sb(t_stack *stack);
@@ -61,8 +62,6 @@ int		swap_b(t_stack *stack);
 int		swap_ab(t_stack *stack);
 void	swaping(t_stack *stack);
 
-void	pp(t_stack *stack);
-
 int		rotate_a(t_stack *stack);
 int		rotate_b(t_stack *stack);
 int		rotate_ab(t_stack *stack);
@@ -72,6 +71,17 @@ int		reverse_rotate_a(t_stack *stack);
 int		reverse_rotate_b(t_stack *stack);
 int		reverse_rotate_ab(t_stack *stack);
 void	reverse_rotating(t_stack *stack);
+
+void	get_the_sorted_list(t_stack *stack);
+
+void	sorting_2(t_stack *stack);
+void	sorting_3(t_stack *stack);
+void	sorting_4_50(t_stack *stack);
+void	sorting_51_350(t_stack *stack);
+void	sorting_351(t_stack *stack);
+void	first_sort(t_stack *stack);
+void	second_sort(t_stack *stack);
+void	choose_sorting(t_stack *stack);
 
 void	push_half_b(t_stack *stack);
 void	sort(t_stack *stack);

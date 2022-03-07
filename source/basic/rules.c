@@ -6,11 +6,11 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 18:55:13 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/03 18:31:25 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/07 21:41:44 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
 /*
 sa (swap a): Swap the first 2 elements at the top of stack a. Do nothing if there is only one or no elements.
@@ -29,7 +29,7 @@ rrb (reverse rotate b): Shift down all elements of stack b by 1. The last elemen
 	rrr : rra and rrb at the same time.
 */
 
-void	action(char *str)
+void	action(t_stack *stack, char *str)
 {
 	if (!ft_strncmp(str, "sa", 2))
 		printf("sa\n");
@@ -53,6 +53,7 @@ void	action(char *str)
 		printf("rrr\n");
 	else if (!ft_strncmp(str, "rr", 2))
 		printf("rr\n");
+	show(stack, 1);
 }
 
 int	sa(t_stack *stack)
@@ -60,7 +61,7 @@ int	sa(t_stack *stack)
 	if (stack->size_a > 1)
 	{
 		swap(&stack->a[stack->last_a], &stack->a[stack->last_a - 1]);
-		action("sa");
+		action(stack, "sa");
 		return (1);
 	}
 	return (0);
@@ -71,7 +72,7 @@ int	sb(t_stack *stack)
 	if (stack->size_b > 1)
 	{
 		swap(&stack->b[stack->last_b], &stack->b[stack->last_b - 1]);
-		action("sb");
+		action(stack, "sb");
 		return (1);
 	}
 	return (0);
@@ -83,7 +84,7 @@ int	ss(t_stack *stack)
 	{
 		swap(&stack->a[stack->last_a], &stack->a[stack->last_a - 1]);
 		swap(&stack->b[stack->last_b], &stack->b[stack->last_b - 1]);
-		action("ss");
+		action(stack, "ss");
 		return (1);
 	}
 	return (0);
@@ -98,7 +99,7 @@ int	pa(t_stack *stack)
 		stack->size_b--;
 		stack->last_a++;
 		stack->last_b--;
-		action("pa");
+		action(stack, "pa");
 		return (1);
 	}
 	return (0);
@@ -113,7 +114,7 @@ int	pb(t_stack *stack)
 		stack->size_a--;
 		stack->last_b++;
 		stack->last_a--;
-		action("pb");
+		action(stack, "pb");
 		return (1);
 	}
 	return (0);
@@ -134,7 +135,7 @@ int	ra(t_stack *stack)
 			i++;
 			j++;
 		}
-		action("ra");
+		action(stack, "ra");
 		return (1);
 	}
 	return (0);
@@ -155,7 +156,7 @@ int	rb(t_stack *stack)
 			i++;
 			j++;
 		}
-		action("rb\n");
+		action(stack, "rb\n");
 		return (1);
 	}
 	return (0);
@@ -184,7 +185,7 @@ int	rr(t_stack *stack)
 			i++;
 			j++;
 		}
-		action("rr");
+		action(stack, "rr");
 		return (1);
 	}
 	return (0);
@@ -205,7 +206,7 @@ int	rra(t_stack *stack)
 			i--;
 			j--;
 		}
-		action("rra");
+		action(stack, "rra");
 		return (1);
 	}
 	return (0);
@@ -226,7 +227,7 @@ int	rrb(t_stack *stack)
 			i--;
 			j--;
 		}
-		action("rrb");
+		action(stack, "rrb");
 		return (1);
 	}
 	return (0);
@@ -255,7 +256,7 @@ int	rrr(t_stack *stack)
 			i--;
 			j--;
 		}
-		action("rrr");
+		action(stack, "rrr");
 		return (1);
 	}
 	return (0);

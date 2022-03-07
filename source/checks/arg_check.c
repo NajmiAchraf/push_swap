@@ -6,11 +6,11 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 21:22:51 by anajmi            #+#    #+#             */
-/*   Updated: 2022/02/27 13:05:13 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/07 16:30:48 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
 static int	check_digit(int ac, char **av)
 {
