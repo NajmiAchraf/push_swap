@@ -203,13 +203,12 @@ void	push_by_section(t_stack *stack)
 		while (j <= sz)
 		{
 			if (stack->lowlimit[i] <= stack->a[stack->last_a] && stack->a[stack->last_a] <= stack->maxlimit[i])
+			{
 				pb(stack);
+				j++;
+			}
 			else
 				choose_1ra_2ra(stack, stack->lowlimit[i], stack->maxlimit[i]);
-			if (stack->lowlimit[i] <= stack->a[stack->last_a] && stack->a[stack->last_a] <= stack->maxlimit[i])
-				pb(stack);
-				// a_isort
-			j++;
 		}
 		i--;
 	}
