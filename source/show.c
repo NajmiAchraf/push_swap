@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 16:26:20 by anaimi            #+#    #+#             */
-/*   Updated: 2022/03/07 21:47:36 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/08 17:06:21 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	show(t_stack *stack, int clear)
 	printf("|a          |b          |\n");
 	printf("|-----------------------|\n");
 
-	usleep(90000);
+	usleep(1000);
 	if (clear)
 	{
 		// getchar();

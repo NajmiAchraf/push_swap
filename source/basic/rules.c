@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 18:55:13 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/07 21:41:44 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/08 17:06:47 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	action(t_stack *stack, char *str)
 		printf("rrr\n");
 	else if (!ft_strncmp(str, "rr", 2))
 		printf("rr\n");
-	show(stack, 1);
+	// show(stack, 1);
 }
 
 int	sa(t_stack *stack)
