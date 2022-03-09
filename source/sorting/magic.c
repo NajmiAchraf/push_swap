@@ -6,37 +6,23 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 16:24:33 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/08 20:59:06 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/09 19:46:52 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	tri_sort(t_stack *stack)
+int	get_section(t_stack *stack, int size)
 {
-	int i;
-
-	i = 0;
-	while (i < stack->lsect)
-	{
-		rrb(stack);
-		rrb(stack);
-		if (stack->maxlimit[i] == stack->b[stack->last_b])
-			pa(stack);
-		if (stack->lowlimit[i] == stack->b[stack->last_b])
-		{
-			pa(stack);
-			ra(stack);
-		}
-		if (stack->maxlimit[i] == stack->b[stack->last_b])
-			pa(stack);
-		pa(stack);
-		rra(stack);
-		i++;
-	}
+	return (size/stack->msect);
 }
 
-void	tls_sort(t_stack *stack)
+int	get_n_section(t_stack *stack, int i)
+{
+	return (i*stack->msect);
+}
+
+void	three_sort(t_stack *stack)
 {
 	swap_b(stack);
 	pa(stack);
@@ -46,7 +32,7 @@ void	tls_sort(t_stack *stack)
 	pa(stack);
 }
 
-void	fts(t_stack *stack)
+void	five_three_sort(t_stack *stack)
 {
 	int i;
 
@@ -64,7 +50,7 @@ void	fts(t_stack *stack)
 		}
 		if (stack->maxlimit[i] == stack->b[stack->last_b])
 			pa(stack);
-		tls_sort(stack);
+		three_sort(stack);
 		rra(stack);
 		i++;
 	}
@@ -96,56 +82,58 @@ void	five_sort(t_stack *stack)
 	pa(stack);
 }
 
-void	twelve_sort(t_stack *stack)
-{
-	swaping(stack);
-	pa(stack);
-	
-	swaping(stack);
-	pa(stack);
-
-	swaping(stack);
-	pa(stack);
-	
-	swaping(stack);
-	pb(stack);
-	
-	swaping(stack);
-	pa(stack);
-	
-	swaping(stack);
-	pb(stack);
-	
-	swaping(stack);
-	pa(stack);
-	pa(stack);
-	pa(stack);
-}
-
-int	the_sections(t_stack *stack)
+void	seven_sort(t_stack *stack)
 {
 	int i;
 
-	i = 2;
-	while (i < 100)
+	i = 0;
+	while (i < stack->lsect)
 	{
-		// printf("%d%%%d=====>%d\n", stack->capacity, i, stack->capacity%i);
-		if (stack->capacity%i == 0)
-			return (i);
+		rrb(stack);
+		rrb(stack);
+		if (stack->maxlimit[i] == stack->b[stack->last_b])
+			pa(stack);
+		if (stack->lowlimit[i] == stack->b[stack->last_b])
+		{
+			pa(stack);
+			ra(stack);
+		}
+		if (stack->maxlimit[i] == stack->b[stack->last_b])
+			pa(stack);
+		five_sort(stack);
+		rra(stack);
 		i++;
 	}
-	return (2);
 }
 
-
-int	get_section(t_stack *stack, int size)
+void	five_h_sort(t_stack *stack)
 {
-	return (size/stack->msect);
-}
-
-int	get_n_section(t_stack *stack, int i)
-{
-	return (i*stack->msect);
+	int i;
+	int j;
+	int l;
+	int m;
+	
+	i = 0;
+	j = stack->capacity % stack->msect;
+	while (i < stack->lsect)
+	{
+		l = stack->sorted[get_n_section(stack, i + 1) + j - 1];
+		m = stack->sorted[get_n_section(stack, i) + j];
+		rrb(stack);
+		rrb(stack);
+		if (m == stack->b[stack->last_b])
+			pa(stack);
+		if (l == stack->b[stack->last_b])
+		{
+			pa(stack);
+			ra(stack);
+		}
+		if (m == stack->b[stack->last_b])
+			pa(stack);
+		three_sort(stack);
+		rra(stack);
+		i++;
+	}
 }
 
 
@@ -174,36 +162,60 @@ void	set_limitations(t_stack *stack, int size)
 int	choose_1ra_2ra(t_stack *stack, int tofindlow, int tofindmax)
 {
 	int	i;
+	int	j;
 
 	i = 0;
-	while (i < stack->size_a / 2)
+	j = stack->last_a - 1;
+	while (i < stack->size_a / 2 || stack->size_a / 2 < j)
 	{
-		if (tofindlow <= stack->a[i] && stack->a[i] <= tofindmax)
+		if (tofindlow <= stack->a[j] && stack->a[j] <= tofindmax)
+			return (ra(stack));
+		else if (tofindlow <= stack->a[i] && stack->a[i] <= tofindmax)
 			return (rra(stack));
 		i++;
+		j--;
 	}
-	return (ra(stack));
+	return (0);
 }
 
-void	push_by_section(t_stack *stack)
+void	push_by_section_3(t_stack *stack)
 {
 	int	i;
 	int	j;
 
 	i = stack->lsect - 1;
-	// printf("i ====== %d\n", i);
-	// printf("stack->lsect ====== %d\n", stack->lsect);
-	// printf("stack->msect ====== %d\n", stack->msect);
-	// getchar();
 	set_limitations(stack, stack->size_a);
-	while (i >= 0)//stack->lsect / 2)
+	while (i >= 0)
 	{
 		j = 0;
 		while (j < stack->msect)
 		{
 			if (stack->lowlimit[i] <= stack->a[stack->last_a] && stack->a[stack->last_a] <= stack->maxlimit[i])
 			{
-				
+				pb(stack);
+				j++;
+			}
+			else
+				choose_1ra_2ra(stack, stack->lowlimit[i], stack->maxlimit[i]);
+		}
+		i--;
+	}
+}
+
+void	push_by_section_5(t_stack *stack)
+{
+	int	i;
+	int	j;
+
+	i = stack->lsect - 1;
+	set_limitations(stack, stack->size_a);
+	while (i >= 0)
+	{
+		j = 0;
+		while (j < stack->msect)
+		{
+			if (stack->lowlimit[i] <= stack->a[stack->last_a] && stack->a[stack->last_a] <= stack->maxlimit[i])
+			{
 				if (stack->lowlimit[i] == stack->a[stack->last_a] || stack->maxlimit[i] == stack->a[stack->last_a])
 				{
 					pb(stack);
@@ -220,45 +232,145 @@ void	push_by_section(t_stack *stack)
 	}
 }
 
+void	push_by_section_3h(t_stack *stack)
+{
+	int	i;
+	int	j;
+	int	k;
+	int	l;
+	int	m;
+
+	i = stack->lsect - 1;
+	k = stack->size_a % stack->msect;
+	while (i > 0) // removed = to reduce moves
+	{
+		j = 0;
+		l = stack->sorted[get_n_section(stack, i + 1) + k - 1];
+		m = stack->sorted[get_n_section(stack, i) + k];
+		while (j < stack->msect)
+		{
+			if (l <= stack->a[stack->last_a] && stack->a[stack->last_a] <= m)
+			{
+				pb(stack);
+				j++;
+			}
+			else
+				choose_1ra_2ra(stack, l, m);
+		}
+		i--;
+	}
+}
+
+void	push_by_section_5h(t_stack *stack)
+{
+	int	i;
+	int	j;
+	int	k;
+	int	l;
+	int	m;
+
+	i = stack->lsect - 1;
+	k = stack->size_a % stack->msect;
+	while (i >= 0)
+	{
+		j = 0;
+		l = stack->sorted[get_n_section(stack, i + 1) + k - 1];
+		m = stack->sorted[get_n_section(stack, i) + k];
+		while (j < stack->msect)
+		{
+			if (l <= stack->a[stack->last_a] && stack->a[stack->last_a] <= m)
+			{
+				if (l == stack->a[stack->last_a] || m == stack->a[stack->last_a])
+				{
+					pb(stack);
+					rb(stack);
+				}
+				else
+					pb(stack);
+				j++;
+			}
+			else
+				choose_1ra_2ra(stack, l, m);
+		}
+		i--;
+	}
+}
+
+void	restore_all(t_stack *stack)
+{
+	int	i;
+	int	j;
+
+	i = stack->size_b;
+	while (i > 0)
+	{
+		pa(stack);
+		i--;
+	}
+}
+
 void	sort(t_stack *stack)
 {
 	// stack->msect = the_sections(stack);
 	stack->lsect = get_section(stack, stack->size_a);
-	// push_half_b(stack);
-	push_by_section(stack);
-	// decrease_sort(stack);
 
-	// show(stack, 0);
-	// getchar();
+	if (stack->msect == 3)
+		push_by_section_3(stack);
+	else if (stack->msect == 5)
+		push_by_section_5(stack);
+	else if (stack->msect == 7)
+	{
+		stack->msect = 100;
+		stack->lsect = get_section(stack, stack->size_a);
+		push_by_section_3h(stack);
+
+		restore_all(stack);
+
+		stack->msect = 5;
+		stack->lsect = get_section(stack, stack->size_a);
+		push_by_section_5h(stack);
+
+		if (stack->size_a == 2)
+			sorting_2(stack);
+		else if (stack->size_a == 3)
+			sorting_3(stack);
+			
+		five_h_sort(stack);
+	}
+
 	if (stack->size_a == 2)
 		sorting_2(stack);
 	else if (stack->size_a == 3)
 		sorting_3(stack);
+	// else if (stack->size_a == 4)
+	// 	sorting_4(stack);
+
 	// show(stack, 0);
 	// getchar();
 	// sa(stack);
 
 	// fts(stack);
-	while (1)
-	{
-		// sort by two
-		// swaping(stack);
-		// pa(stack);
-		if (stack->msect == 3)
-			// sort by three
-			tri_sort(stack);
+	// while (1)
+	// {
+	// 	// sort by two
+	// 	// swaping(stack);
+	// 	// pa(stack);
+	// 	if (stack->msect == 3)
+	// 		// sort by three
+	// 		three_sort(stack);
 
-		if (stack->msect == 5)
-			// sort by five
-			// five_sort(stack);
-			fts(stack);
+	// 	if (stack->msect == 5)
+	// 		// sort by five
+	// 		five_three_sort(stack);
+			
+	// 	if (stack->msect == 7)
+	// 	{
+	// 		// sort by seven
+	// 		// seven_sort(stack);
+	// 	}
 			
 
-		if (stack->msect == 12)
-			// sort by twelve
-			twelve_sort(stack);
-
-		if (stack->size_a == stack->capacity)
-			break;
-	}
+	// 	if (stack->size_a == stack->capacity)
+	// 		break;
+	// }
 }

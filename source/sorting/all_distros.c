@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:43:48 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/08 18:15:07 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/09 16:03:39 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ void	sorting_51_350(t_stack *stack)
 
 void	sorting_351(t_stack *stack)
 {
-	stack->msect = 12;
+	stack->msect = 7;
 	sort(stack);
 }

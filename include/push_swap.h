@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 21:22:26 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/08 17:43:54 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/08 23:38:05 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,12 +85,6 @@ void	choose_sorting(t_stack *stack);
 
 void	push_half_b(t_stack *stack);
 void	sort(t_stack *stack);
-
-void	increase2b(t_stack *stack);
-void	decrease2b(t_stack *stack);
-int		empty_stacks(t_stack *stack);
-void	increase_sort(t_stack *stack);
-void	decrease_sort(t_stack *stack);
 
 void	show(t_stack *stack, int clear);
 
