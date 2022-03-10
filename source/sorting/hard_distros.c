@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   all_distros.c                                      :+:      :+:    :+:   */
+/*   hard_distros.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:43:48 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/09 16:03:39 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/10 15:52:46 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,20 +42,29 @@ void	sorting_3(t_stack *stack)
 		ra(stack);
 }
 
-void	sorting_4_50(t_stack *stack)
+void	sorting_4(t_stack *stack)
 {
-	stack->msect = 3;
-	sort(stack);
+	swaping(stack);
+	pb(stack);
+	swaping(stack);
+	pb(stack);
+	swaping(stack);
+	pb(stack);
+	swaping(stack);
+	pa(stack);
+	swaping(stack);
+	pa(stack);
+	swaping(stack);
+	pa(stack);
+	swaping(stack);
 }
 
-void	sorting_51_350(t_stack *stack)
+void	hard_sort(t_stack *stack)
 {
-	stack->msect = 5;
-	sort(stack);
-}
-
-void	sorting_351(t_stack *stack)
-{
-	stack->msect = 7;
-	sort(stack);
+	if (stack->size_a == 2)
+		sorting_2(stack);
+	else if (stack->size_a == 3)
+		sorting_3(stack);
+	else if (stack->size_a == 4)
+		sorting_4(stack);
 }

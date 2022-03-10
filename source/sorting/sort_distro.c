@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:29:47 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/08 17:43:24 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/10 15:38:51 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,14 @@ void	first_sort(t_stack *stack)
 		sorting_2(stack);
 	else if (stack->capacity == 3)
 		sorting_3(stack);
+	else if (stack->capacity == 4)
+		sorting_4(stack);
 }
 
 void	second_sort(t_stack *stack)
 {
-	if (3 < stack->capacity && stack->capacity < 51)
-		sorting_4_50(stack);
+	if (4 < stack->capacity && stack->capacity < 51)
+		sorting_5_50(stack);
 	else if (50 < stack->capacity && stack->capacity < 351)
 		sorting_51_350(stack);
 	else if (350 < stack->capacity)
@@ -51,8 +53,8 @@ void	second_sort(t_stack *stack)
 
 void	choose_sorting(t_stack *stack)
 {
-	if (stack->capacity < 4)
+	if (stack->capacity < 5)
 		first_sort(stack);
-	else if (stack->capacity > 3)
+	else if (stack->capacity > 4)
 		second_sort(stack);
 }
