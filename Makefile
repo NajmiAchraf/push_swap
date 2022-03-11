@@ -6,21 +6,53 @@
 #    By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/01 18:11:09 by anajmi            #+#    #+#              #
-#    Updated: 2022/03/02 11:43:36 by anajmi           ###   ########.fr        #
+#    Updated: 2022/03/11 19:28:00 by anajmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
+CFLAGS = -Wall -Werror -Wextra
+
 FILES = \
-		./source/
+		./source/basic/rules_push.c				\
+		./source/basic/rules_reverse_rotate.c	\
+		./source/basic/rules_rotate.c			\
+		./source/basic/rules_swap.c				\
+		./source/basic/swap.c					\
+		./source/checks/arg_check.c				\
+		./source/checks/sorting_check.c			\
+		./source/sorting/hard_distros.c			\
+		./source/sorting/magic_a_to_b.c			\
+		./source/sorting/magic_b_to_a.c			\
+		./source/sorting/magic_distros.c		\
+		./source/sorting/magic_tools.c			\
+		./source/sorting/sort_distro.c			\
+		./push_swap.c
 
-all: ${NAME}
+OBJ = $(FILES:.c=.o)
 
-clean:
+LIBFT = ./Libft
+ARLIB = $(LIBFT)/libft.a
+ALLIBFT = make -C $(LIBFT)
+CLEANLIBFT = make clean -C $(LIBFT)
+FCLEANLIBFT = rm $(ARLIB)
+RELIBFT = make re -C $(LIBFT)
 
-fclean:
+all : $(NAME)
 
-re:
+$(NAME) : $(OBJ)
+	$(ALLIBFT)
+	gcc $(OBJ) $(ARLIB) -o $(NAME)
 
-.PHONY: all clean fclean re
+clean :
+	$(CLEANLIBFT)
+	rm $(OBJ)
+
+fclean : clean
+	$(FCLEANLIBFT)
+	rm $(NAME)
+
+re : fclean all
+
+.PHONY : all clean fclean re

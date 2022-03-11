@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 16:43:05 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/10 21:48:14 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/11 14:02:58 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ void	create_stack(t_stack *stack, int capacity)
 	}
 }
 
-void fill_in(t_stack *stack, int ac, char *av[])
+void	fill_in(t_stack *stack, int ac, char *av[])
 {
-	int	 i;
-	
+	int	i;
+
 	i = 0;
 	while (--ac > 0)
 	{
@@ -52,18 +52,15 @@ int	main(int ac, char *av[])
 
 	if (ac <= 2 || !arg_check(ac, av))
 		exit(0);
-	stack = (t_stack*)malloc(sizeof(t_stack));
+	stack = (t_stack *)malloc(sizeof(t_stack));
 	if (!stack)
 		return (0);
 	create_stack(stack, ac);
 	fill_in(stack, ac, av);
 	get_the_sorted_list(stack);
-
 	// show(stack, 0);
 	if (!a_isort(stack))
 		choose_sorting(stack);
-
-	// system("leaks a.out");
 	// system("leaks push_swap");
 	return (0);
 }

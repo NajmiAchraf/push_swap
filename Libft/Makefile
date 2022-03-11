@@ -6,7 +6,7 @@
 #    By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/05 20:14:52 by anajmi            #+#    #+#              #
-#    Updated: 2022/02/24 16:32:11 by anajmi           ###   ########.fr        #
+#    Updated: 2022/03/11 19:11:38 by anajmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,15 +52,6 @@ SRC_PART2 = 	\
 	./ft_putendl_fd.c	\
 	./ft_putnbr_fd.c
 
-BONUS = \
-	./ft_lstnew_bonus.c	 	\
-	./ft_lstadd_front_bonus.c	\
-	./ft_lstsize_bonus.c		\
-	./ft_lstlast_bonus.c		\
-	./ft_lstadd_back_bonus.c	\
-	./ft_lstclear_bonus.c		\
-	./ft_lstdelone_bonus.c
-
 PARTS = $(SRC_PART1) $(SRC_PART2)
 
 OBJS = $(PARTS:.c=.o)
@@ -77,10 +68,5 @@ fclean : clean
 	rm -f $(NAME)
 
 re : fclean all
-
-OBBS = $(BONUS:.c=.o)
-
-bonus : $(OBBS)
-	ar -rc $(NAME) $(OBBS)
 
 .PHONY : all clean fclean re bonus

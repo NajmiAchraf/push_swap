@@ -1,6 +1,9 @@
-make --dry-run --always-make --keep-going --print-directory
+make --dry-run --keep-going --print-directory
 make: Entering directory `/Users/anajmi/Documents/42cursus/Push_Swap_Project/Push_swap'
-cc     push_swap.c   -o push_swap
- 
+cc -Wall -Werror -Wextra   -c -o source/sorting/magic_tools.o source/sorting/magic_tools.c
+cc -Wall -Werror -Wextra   -c -o source/sorting/sort_distro.o source/sorting/sort_distro.c
+cc -Wall -Werror -Wextra   -c -o push_swap.o push_swap.c
+make -C ./Libft
+gcc ./source/basic/rules_push.o ./source/basic/rules_reverse_rotate.o ./source/basic/rules_rotate.o ./source/basic/rules_swap.o ./source/basic/swap.o ./source/checks/arg_check.o ./source/checks/sorting_check.o ./source/sorting/hard_distros.o ./source/sorting/magic_a_to_b.o ./source/sorting/magic_b_to_a.o ./source/sorting/magic_distros.o ./source/sorting/magic_tools.o ./source/sorting/sort_distro.o ./push_swap.o ./Libft/libft.a -o push_swap
 make: Leaving directory `/Users/anajmi/Documents/42cursus/Push_Swap_Project/Push_swap'
  

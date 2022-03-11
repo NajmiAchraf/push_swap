@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 16:24:33 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/10 22:56:07 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/11 18:57:19 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,8 @@
 
 void	restore_all(t_stack *stack)
 {
-	int	i;
-	int	j;
-
-	i = stack->size_b;
-	while (i > 0)
-	{
+	while (stack->size_b > 0)
 		pa(stack);
-		i--;
-	}
 }
 
 void	three_sort(t_stack *stack)

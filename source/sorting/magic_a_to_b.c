@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 16:24:33 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/10 22:53:07 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/11 19:30:13 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	push_by_section_3(t_stack *stack)
 	int	j;
 
 	i = stack->lsect - 1;
-	set_limitations(stack, stack->size_a);
+	set_limitations(stack);
 	while (i >= 0)
 	{
 		j = 0;

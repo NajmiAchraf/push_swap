@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 16:24:33 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/09 23:12:03 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/11 19:29:34 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 int	get_section(t_stack *stack, int size)
 {
-	return (size/stack->msect);
+	return (size / stack->msect);
 }
 
 int	get_n_section(t_stack *stack, int i)
 {
-	return (i*stack->msect);
+	return (i * stack->msect);
 }
 
-void	set_limitations(t_stack *stack, int size)
+void	set_limitations(t_stack *stack)
 {
 	int	i;
 	int	j;

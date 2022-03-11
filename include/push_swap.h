@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 21:22:26 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/10 22:53:17 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/11 19:30:04 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include "../Libft/libft.h"
 
-#include <stdio.h> // to remove
-#include <time.h> // to remove
 typedef struct s_stack
 {
 	int	msect;
@@ -43,7 +41,7 @@ int		a_isort(t_stack *stack);
 int		b_isortinv(t_stack *stack);
 int		b_isort(t_stack *stack);
 
-void	action(t_stack *stack, char *str);
+void	action(char *str);
 void	swap(int *n1, int *n2);
 int		sa(t_stack *stack);
 int		sb(t_stack *stack);
@@ -79,7 +77,7 @@ int		get_n_section(t_stack *stack, int i);
 void	three_sort(t_stack *stack);
 void	five_three_sort(t_stack *stack);
 
-void	set_limitations(t_stack *stack, int size);
+void	set_limitations(t_stack *stack);
 
 int		choose_1ra_2ra(t_stack *stack, int tofindlow, int tofindmax);
 void	push_by_section_3(t_stack *stack);
@@ -88,7 +86,5 @@ void	push_by_section_five(t_stack *stack);
 void	restore_all(t_stack *stack);
 
 void	hard_sort(t_stack *stack);
-
-void	show(t_stack *stack, int clear); // should delete
 
 #endif

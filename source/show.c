@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 16:26:20 by anaimi            #+#    #+#             */
-/*   Updated: 2022/03/08 17:06:21 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/11 19:13:51 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ static int	ft_int_length(long value)
 
 void	show(t_stack *stack, int clear)
 {
-	int	i, j;
+	int	i;
+	int	j;
 
 	i = stack->capacity - 1;
-
 	printf("\033[0;37m");
 	printf("_________________________\n");
 	while (0 <= i)
@@ -76,7 +76,6 @@ void	show(t_stack *stack, int clear)
 	printf("|-----------------------|\n");
 	printf("|a          |b          |\n");
 	printf("|-----------------------|\n");
-
 	usleep(1000);
 	if (clear)
 	{
