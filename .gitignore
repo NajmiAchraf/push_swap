@@ -1,6 +1,8 @@
 .DS_Store
 .vscode
 **/*.o
+Libft/libft.a
+push_swap
 push_swap_visualizer
 push_swap_test
 source/show.c
