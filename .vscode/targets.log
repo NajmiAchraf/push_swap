@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Fri Mar 11 19:28:14 2022
+# Make data base, printed on Sat Mar 12 18:47:16 2022
 
 # Variables
 
@@ -16,7 +16,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 <D = $(patsubst %/,%,$(dir $<))
 # automatic
 ?F = $(notdir $?)
-# makefile (from `Makefile', line 33)
+ 
+# makefile (from `Makefile', line 32)
 OBJ = $(FILES:.c=.o)
 # environment
 VSCODE_LOG_NATIVE = false
@@ -34,26 +35,24 @@ SHELL = /bin/sh
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
-# makefile (from `Makefile', line 38)
+# makefile (from `Makefile', line 37)
 CLEANLIBFT = make clean -C $(LIBFT)
 # makefile (from `Makefile', line 15)
 CFLAGS = -Wall -Werror -Wextra
 # makefile (from `Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
-# makefile (from `Makefile', line 40)
+# makefile (from `Makefile', line 39)
 RELIBFT = make re -C $(LIBFT)
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n0000h6c00041l/T/vscode-ipc-f666d7b1-e519-4f5c-8f9f-4b5f20770368.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n0000h6c00041l/T/vscode-ipc-4200ee8c-f23f-414d-b5b4-c442e1dde789.sock
 # environment
 VSCODE_CWD = /
 # environment
-Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.NLwEjcEb7L/Render
+Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.UCBUFZaYkk/Render
 # environment
-PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
-# environment
-LSCOLORS = Gxfxcxdxbxegedabagacad
+PATH = /usr/bin:/bin:/usr/sbin:/sbin
 # environment
 VSCODE_LOG_STACK = false
 # environment
@@ -61,7 +60,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.ILY1jX21NZ/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.UGiEnQn96q/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -82,9 +81,7 @@ VSCODE_CODE_CACHE_PATH = /Users/anajmi/Library/Application Support/Code/CachedDa
 LOGNAME = anajmi
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
-# environment
-ZSH = /Users/anajmi/.oh-my-zsh
-# makefile (from `Makefile', line 37)
+# makefile (from `Makefile', line 36)
 ALLIBFT = make -C $(LIBFT)
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
@@ -98,22 +95,20 @@ MAKE = $(MAKE_COMMAND)
 MAKECMDGOALS := all
 # environment
 SHLVL = 1
-# makefile (from `Makefile', line 35)
+# makefile (from `Makefile', line 34)
 LIBFT = ./Libft
-# makefile (from `Makefile', line 36)
+# makefile (from `Makefile', line 35)
 ARLIB = $(LIBFT)/libft.a
 # default
 MAKE_VERSION := 3.81
 # environment
 USER = anajmi
 # makefile
-.DEFAULT_GOAL := all
+.DEFAULT_GOAL := push_swap
 # makefile (from `Makefile', line 13)
 NAME = push_swap
-# makefile (from `Makefile', line 39)
+# makefile (from `Makefile', line 38)
 FCLEANLIBFT = rm $(ARLIB)
-# environment
-LESS = -R
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # default
@@ -133,7 +128,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000007.Electron
+XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000013.Electron
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -147,11 +142,9 @@ MAKEFILES :=
 # automatic
 <F = $(notdir $<)
 # environment
-PAGER = less
-# environment
 LC_ALL = C
 # environment
-SECURITYSESSIONID = 186be
+SECURITYSESSIONID = 18878
 # automatic
 ^F = $(notdir $^)
 # default
@@ -163,11 +156,11 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 6107
+VSCODE_PID = 49282
 # makefile (from `Makefile', line 17)
-FILES = ./source/basic/rules_push.c ./source/basic/rules_reverse_rotate.c ./source/basic/rules_rotate.c ./source/basic/rules_swap.c ./source/basic/swap.c ./source/checks/arg_check.c ./source/checks/sorting_check.c ./source/sorting/hard_distros.c ./source/sorting/magic_a_to_b.c ./source/sorting/magic_b_to_a.c ./source/sorting/magic_distros.c ./source/sorting/magic_tools.c ./source/sorting/sort_distro.c ./push_swap.c
+FILES = ./source/basic/rules_push.c ./source/basic/rules_reverse_rotate.c ./source/basic/rules_rotate.c ./source/basic/rules_swap.c ./source/basic/swap.c ./source/checks/checking.c ./source/sorting/hard_distros.c ./source/sorting/magic_a_to_b.c ./source/sorting/magic_b_to_a.c ./source/sorting/magic_distros.c ./source/sorting/magic_tools.c ./source/sorting/sort_distro.c ./push_swap.c
 # variable set hash-table stats:
-# Load=77/1024=8%, Rehash=0, Collisions=4/105=4%
+# Load=73/1024=7%, Rehash=0, Collisions=4/101=4%
 
 # Pattern-specific Variable Values
 
@@ -175,7 +168,7 @@ FILES = ./source/basic/rules_push.c ./source/basic/rules_reverse_rotate.c ./sour
 
 # Directories
 
-# . (device 16777227, inode 1519608): 16 files, no impossibilities.
+# . (device 16777228, inode 1519608): 16 files, no impossibilities.
 
 # 16 files, no impossibilities in 1 directories.
 
@@ -188,7 +181,7 @@ FILES = ./source/basic/rules_push.c ./source/basic/rules_reverse_rotate.c ./sour
 # Not a target:
 source/sorting/magic_a_to_b.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-11 19:28:04
+#  Last modified 2022-03-12 18:46:59
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -199,14 +192,15 @@ all: push_swap
 #  Command-line target.
 #  Implicit rule search has not been done.
 #  File does not exist.
-#  File has not been updated.
+#  File has been updated.
+#  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 source/sorting/magic_b_to_a.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-11 19:28:04
+#  Last modified 2022-03-12 18:46:59
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -224,18 +218,9 @@ source/sorting/magic_b_to_a.o:
 #  File has not been updated.
 
 # Not a target:
-source/checks/arg_check.o:
-#  Implicit rule search has been done.
-#  Last modified 2022-03-11 19:28:04
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-11 19:28:00
+#  Last modified 2022-03-12 18:46:49
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -244,15 +229,25 @@ Makefile:
 # Not a target:
 source/sorting/magic_tools.o:
 #  Implicit rule search has been done.
-#  File does not exist.
-#  File has not been updated.
+#  Last modified 2022-03-12 18:46:59
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+source/checks/checking.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-03-12 18:46:59
+#  File has been updated.
+#  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 source/sorting/magic_distros.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-11 19:28:04
+#  Last modified 2022-03-12 18:46:59
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -263,21 +258,24 @@ fclean: clean
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 53):
+#  commands to execute (from `Makefile', line 52):
 	$(FCLEANLIBFT)
 	rm $(NAME)
 	
 
 # Not a target:
 source/sorting/sort_distro.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-03-12 18:46:59
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 source/basic/swap.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-11 19:28:04
+#  Last modified 2022-03-12 18:46:59
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -292,7 +290,7 @@ source/basic/swap.o:
 # Not a target:
 source/basic/rules_push.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-11 19:28:03
+#  Last modified 2022-03-12 18:46:59
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -307,38 +305,40 @@ re: fclean all
 # Not a target:
 source/basic/rules_reverse_rotate.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-11 19:28:03
+#  Last modified 2022-03-12 18:46:59
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 clean:
- 
-make: *** No rule to make target `source/sorting/magic_tools.o', needed by `push_swap'.  Stop.
- 
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 49):
+#  commands to execute (from `Makefile', line 48):
 	$(CLEANLIBFT)
 	rm $(OBJ)
 	
 
+ 
 # Not a target:
 push_swap.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-push_swap: source/basic/rules_push.o source/basic/rules_reverse_rotate.o source/basic/rules_rotate.o source/basic/rules_swap.o source/basic/swap.o source/checks/arg_check.o source/checks/sorting_check.o source/sorting/hard_distros.o source/sorting/magic_a_to_b.o source/sorting/magic_b_to_a.o source/sorting/magic_distros.o source/sorting/magic_tools.o source/sorting/sort_distro.o push_swap.o
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-03-12 18:46:59
+#  File has been updated.
+#  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 45):
+
+push_swap: source/basic/rules_push.o source/basic/rules_reverse_rotate.o source/basic/rules_rotate.o source/basic/rules_swap.o source/basic/swap.o source/checks/checking.o source/sorting/hard_distros.o source/sorting/magic_a_to_b.o source/sorting/magic_b_to_a.o source/sorting/magic_distros.o source/sorting/magic_tools.o source/sorting/sort_distro.o push_swap.o
+#  Implicit rule search has not been done.
+#  Last modified 2022-03-12 18:47:01
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 42):
 	$(ALLIBFT)
 	gcc $(OBJ) $(ARLIB) -o $(NAME)
 	
@@ -346,7 +346,7 @@ push_swap: source/basic/rules_push.o source/basic/rules_reverse_rotate.o source/
 # Not a target:
 source/basic/rules_swap.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-11 19:28:04
+#  Last modified 2022-03-12 18:46:59
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -355,16 +355,7 @@ source/basic/rules_swap.o:
 # Not a target:
 source/basic/rules_rotate.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-11 19:28:03
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
-# Not a target:
-source/checks/sorting_check.o:
-#  Implicit rule search has been done.
-#  Last modified 2022-03-11 19:28:04
+#  Last modified 2022-03-12 18:46:59
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -373,14 +364,14 @@ source/checks/sorting_check.o:
 # Not a target:
 source/sorting/hard_distros.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-11 19:28:04
+#  Last modified 2022-03-12 18:46:59
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # files hash-table stats:
-# Load=23/1024=2%, Rehash=0, Collisions=2/58=3%
+# Load=22/1024=2%, Rehash=0, Collisions=2/56=4%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -392,6 +383,6 @@ source/sorting/hard_distros.o:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Fri Mar 11 19:28:14 2022
+# Finished Make data base on Sat Mar 12 18:47:16 2022
 
  

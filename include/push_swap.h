@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 21:22:26 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/11 19:30:04 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/12 17:43:40 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,7 @@ void	create_stack(t_stack *stack, int capacity);
 void	fill_in(t_stack *stack, int ac, char *av[]);
 
 int		arg_check(int ac, char **av);
-
-int		a_isortinv(t_stack *stack);
-int		a_isort(t_stack *stack);
-int		b_isortinv(t_stack *stack);
-int		b_isort(t_stack *stack);
+int		sort_check(t_stack *stack);
 
 void	action(char *str);
 void	swap(int *n1, int *n2);
@@ -77,14 +73,11 @@ int		get_n_section(t_stack *stack, int i);
 void	three_sort(t_stack *stack);
 void	five_three_sort(t_stack *stack);
 
-void	set_limitations(t_stack *stack);
-
 int		choose_1ra_2ra(t_stack *stack, int tofindlow, int tofindmax);
-void	push_by_section_3(t_stack *stack);
-void	push_by_section_three(t_stack *stack);
-void	push_by_section_five(t_stack *stack);
-void	restore_all(t_stack *stack);
-
+void	push_by_section_down(t_stack *stack);
+void	push_by_section_fly(t_stack *stack);
+int		choose_1rb_2rb(t_stack *stack, int tofindlow, int tofindmax);
+void	push_by_section_up(t_stack *stack);
 void	hard_sort(t_stack *stack);
 
 #endif

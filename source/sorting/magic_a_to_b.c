@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 16:24:33 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/11 19:30:13 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/12 15:52:52 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,32 +31,7 @@ int	choose_1ra_2ra(t_stack *stack, int tofindlow, int tofindmax)
 	return (0);
 }
 
-void	push_by_section_3(t_stack *stack)
-{
-	int	i;
-	int	j;
-
-	i = stack->lsect - 1;
-	set_limitations(stack);
-	while (i >= 0)
-	{
-		j = 0;
-		while (j < stack->msect)
-		{
-			if (stack->lowlimit[i] <= stack->a[stack->last_a]
-				&& stack->a[stack->last_a] <= stack->maxlimit[i])
-			{
-				pb(stack);
-				j++;
-			}
-			else
-				choose_1ra_2ra(stack, stack->lowlimit[i], stack->maxlimit[i]);
-		}
-		i--;
-	}
-}
-
-void	push_by_section_three(t_stack *stack)
+void	push_by_section_down(t_stack *stack)
 {
 	int	i;
 	int	j;
@@ -66,7 +41,7 @@ void	push_by_section_three(t_stack *stack)
 
 	i = stack->lsect - 1;
 	k = stack->size_a % stack->msect;
-	while (i > 0)
+	while (i >= 0)
 	{
 		j = 0;
 		l = stack->sorted[get_n_section(stack, i + 1) + k - 1];
@@ -96,7 +71,7 @@ static void	core_a_to_b(t_stack *stack, int max, int min)
 		pb(stack);
 }
 
-void	push_by_section_five(t_stack *stack)
+void	push_by_section_fly(t_stack *stack)
 {
 	int	i;
 	int	j;

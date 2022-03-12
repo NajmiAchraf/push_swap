@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 16:43:05 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/11 14:02:58 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/12 20:16:50 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,17 @@ int	main(int ac, char *av[])
 	t_stack	*stack;
 
 	if (ac <= 2 || !arg_check(ac, av))
+	{
+		ft_putendl_fd("Error", 2);
 		exit(0);
+	}
 	stack = (t_stack *)malloc(sizeof(t_stack));
 	if (!stack)
 		return (0);
 	create_stack(stack, ac);
 	fill_in(stack, ac, av);
 	get_the_sorted_list(stack);
-	// show(stack, 0);
-	if (!a_isort(stack))
+	if (!sort_check(stack))
 		choose_sorting(stack);
-	// system("leaks push_swap");
 	return (0);
 }

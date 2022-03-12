@@ -6,7 +6,7 @@
 #    By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/01 18:11:09 by anajmi            #+#    #+#              #
-#    Updated: 2022/03/11 19:28:00 by anajmi           ###   ########.fr        #
+#    Updated: 2022/03/12 18:46:49 by anajmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,8 +20,7 @@ FILES = \
 		./source/basic/rules_rotate.c			\
 		./source/basic/rules_swap.c				\
 		./source/basic/swap.c					\
-		./source/checks/arg_check.c				\
-		./source/checks/sorting_check.c			\
+		./source/checks/checking.c				\
 		./source/sorting/hard_distros.c			\
 		./source/sorting/magic_a_to_b.c			\
 		./source/sorting/magic_b_to_a.c			\
@@ -39,11 +38,11 @@ CLEANLIBFT = make clean -C $(LIBFT)
 FCLEANLIBFT = rm $(ARLIB)
 RELIBFT = make re -C $(LIBFT)
 
-all : $(NAME)
-
 $(NAME) : $(OBJ)
 	$(ALLIBFT)
 	gcc $(OBJ) $(ARLIB) -o $(NAME)
+
+all : $(NAME)
 
 clean :
 	$(CLEANLIBFT)
