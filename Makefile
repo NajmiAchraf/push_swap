@@ -6,7 +6,7 @@
 #    By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/01 18:11:09 by anajmi            #+#    #+#              #
-#    Updated: 2022/03/13 20:12:15 by anajmi           ###   ########.fr        #
+#    Updated: 2022/03/14 16:04:13 by anajmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,31 +50,40 @@ LIBFT = ./Libft
 ARLIB = $(LIBFT)/libft.a
 ALLIBFT = make -C $(LIBFT)
 CLEANLIBFT = make clean -C $(LIBFT)
-FCLEANLIBFT = rm $(ARLIB)
+FCLEANLIBFT = rm -f $(ARLIB)
 RELIBFT = make re -C $(LIBFT)
 
-$(NAME) : $(OBJ)
-	$(ALLIBFT)
-	gcc $(OBJ) $(ARLIB) -o $(NAME)
+C_RED = \033[1;31m
+C_GREEN = \033[1;32m
+C_L_BLUE = \033[1;34m
+C_RES = \033[0m
 
 all : $(NAME)
 
-clean :
-	$(CLEANLIBFT)
-	rm $(OBJ)
-	rm $(BOBJ)
-
-fclean : clean
-	$(FCLEANLIBFT)
-	rm $(NAME)
-	rm $(BNM)
-
-re : fclean all
-
-$(BNM) : $(BOBJ)
-	$(ALLIBFT)
-	gcc $(BOBJ) $(ARLIB) -o $(BNM)
+$(NAME) : $(OBJ)
+	@$(ALLIBFT)
+	@gcc $(OBJ) $(ARLIB) -o $(NAME)
+	@echo "$(C_GREEN)[LIBRARY CREATED!]$(C_RES)"
 
 bonus : $(BNM)
+
+$(BNM) : $(BOBJ)
+	@$(ALLIBFT)
+	@gcc $(BOBJ) $(ARLIB) -o $(BNM)
+	@echo "$(C_L_BLUE)[BONUS CREATED!]$(C_RES)"
+
+clean :
+	@$(CLEANLIBFT)
+	@rm -f $(OBJ)
+	@rm -f $(BOBJ)
+	@echo "$(C_RED)[OBJECTS DELETED!]$(C_RES)"
+
+fclean : clean
+	@$(FCLEANLIBFT)
+	@rm -f $(NAME)
+	@rm -f $(BNM)
+	@echo "$(C_RED)[ARCHIVE & EXECUTABLES REMOVED!]$(C_RES)"
+
+re : fclean all
 
 .PHONY : all clean fclean re bonus

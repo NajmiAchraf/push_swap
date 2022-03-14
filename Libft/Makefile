@@ -6,7 +6,7 @@
 #    By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/05 20:14:52 by anajmi            #+#    #+#              #
-#    Updated: 2022/03/11 19:11:38 by anajmi           ###   ########.fr        #
+#    Updated: 2022/03/14 16:00:33 by anajmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,17 +56,25 @@ PARTS = $(SRC_PART1) $(SRC_PART2)
 
 OBJS = $(PARTS:.c=.o)
 
+C_RED = \033[1;31m
+C_GREEN = \033[1;32m
+C_L_BLUE = \033[1;34m
+C_RES = \033[0m
+
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	ar -rc $(NAME) $(OBJS)
+	@ar -rc $(NAME) $(OBJS)
+	@echo "$(C_GREEN)[LIBFT CREATED!]$(C_RES)"
 
 clean :
-	rm -f $(OBJS) $(OBBS)
+	@rm -f $(OBJS)
+	@echo "$(C_RED)[OBJECTS DELETED!]$(C_RES)"
 
 fclean : clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@echo "$(C_RED)[ARCHIVE REMOVED!]$(C_RES)"
 
 re : fclean all
-
+	
 .PHONY : all clean fclean re bonus
