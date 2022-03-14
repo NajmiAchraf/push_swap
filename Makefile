@@ -6,7 +6,7 @@
 #    By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/01 18:11:09 by anajmi            #+#    #+#              #
-#    Updated: 2022/03/14 16:10:09 by anajmi           ###   ########.fr        #
+#    Updated: 2022/03/14 18:58:01 by anajmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,32 +58,34 @@ C_GREEN = \033[1;32m
 C_L_BLUE = \033[1;34m
 C_RES = \033[0m
 
+.PHONY : all clean fclean re bonus
+
+%.o: %.c
+	@gcc $(FLAGS) -c $^ -o $@
+
 all : $(NAME)
 
 $(NAME) : $(OBJ)
 	@$(ALLIBFT)
 	@gcc $(OBJ) $(ARLIB) -o $(NAME)
-	@echo "$(C_GREEN)[MANDATORY CREATED!]$(C_RES)"
-
+	@echo "$(C_GREEN)[PUSH SWAP MANDATORY CREATED!]$(C_RES)"
+	
 bonus : $(BNM)
 
 $(BNM) : $(BOBJ)
 	@$(ALLIBFT)
 	@gcc $(BOBJ) $(ARLIB) -o $(BNM)
-	@echo "$(C_L_BLUE)[BONUS CREATED!]$(C_RES)"
-
+	@echo "$(C_L_BLUE)[PUSH SWAP BONUS CREATED!]$(C_RES)"
 clean :
 	@$(CLEANLIBFT)
 	@rm -f $(OBJ)
 	@rm -f $(BOBJ)
-	@echo "$(C_RED)[OBJECTS DELETED!]$(C_RES)"
+	@echo "$(C_RED)[PUSH SWAP OBJECTS DELETED!]$(C_RES)"
 
 fclean : clean
 	@$(FCLEANLIBFT)
 	@rm -f $(NAME)
 	@rm -f $(BNM)
-	@echo "$(C_RED)[ARCHIVE & EXECUTABLES REMOVED!]$(C_RES)"
+	@echo "$(C_RED)[LIBFT ARCHIVE & PUSH SWAP EXECUTABLES DELETED!]$(C_RES)"
 
 re : fclean all
-
-.PHONY : all clean fclean re bonus

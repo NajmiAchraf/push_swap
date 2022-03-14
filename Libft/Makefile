@@ -6,7 +6,7 @@
 #    By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/05 20:14:52 by anajmi            #+#    #+#              #
-#    Updated: 2022/03/14 16:00:33 by anajmi           ###   ########.fr        #
+#    Updated: 2022/03/14 18:58:16 by anajmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,6 +61,11 @@ C_GREEN = \033[1;32m
 C_L_BLUE = \033[1;34m
 C_RES = \033[0m
 
+.PHONY : all clean fclean re bonus
+
+%.o: %.c
+	@gcc $(FLAGS) -c $^ -o $@
+
 all : $(NAME)
 
 $(NAME) : $(OBJS)
@@ -69,12 +74,10 @@ $(NAME) : $(OBJS)
 
 clean :
 	@rm -f $(OBJS)
-	@echo "$(C_RED)[OBJECTS DELETED!]$(C_RES)"
+	@echo "$(C_RED)[LIBFT OBJECTS DELETED!]$(C_RES)"
 
 fclean : clean
 	@rm -f $(NAME)
-	@echo "$(C_RED)[ARCHIVE REMOVED!]$(C_RES)"
+	@echo "$(C_RED)[LIBFT ARCHIVE DELETED!]$(C_RES)"
 
 re : fclean all
-	
-.PHONY : all clean fclean re bonus
