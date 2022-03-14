@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 16:24:33 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/12 15:52:52 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/13 15:56:01 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	push_by_section_down(t_stack *stack)
 	int	m;
 
 	i = stack->lsect - 1;
-	k = stack->size_a % stack->msect;
+	k = stack->capacity % stack->msect;
 	while (i >= 0)
 	{
 		j = 0;
@@ -80,7 +80,7 @@ void	push_by_section_fly(t_stack *stack)
 	int	m;
 
 	i = stack->lsect - 1;
-	k = stack->size_a % stack->msect;
+	k = stack->capacity % stack->msect;
 	while (i >= 0)
 	{
 		j = 0;

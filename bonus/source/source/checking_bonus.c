@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checking.c                                         :+:      :+:    :+:   */
+/*   checking_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 21:22:51 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/12 20:17:00 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/14 15:07:45 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "../../include/checker_bonus.h"
 
 static int	check_digit(int ac, char **av)
 {
@@ -25,8 +25,9 @@ static int	check_digit(int ac, char **av)
 		{
 			if (j == 0)
 			{
-				if (!ft_isdigit(av[i][0]) && av[i][0] != '-' && av[i][0] != '+')
-					j = 0;
+				if ((av[i][0] == '-' || av[i][0] == '+')
+					&& !ft_isdigit(av[i][1]))
+					return (0);
 			}
 			else
 			{
@@ -76,6 +77,9 @@ static int	check_limit_int(int ac, char **av)
 			if (check == 0 || check == -1)
 				return (0);
 		}
+		if (av[i][0] == '\0' || av[i][0] == ' '
+			|| (9 <= av[i][0] && av[i][0] <= 13))
+			return (0);
 		i++;
 	}
 	return (1);

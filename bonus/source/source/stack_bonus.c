@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   stack_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/21 16:43:05 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/12 20:16:50 by anajmi           ###   ########.fr       */
+/*   Created: 2022/03/13 19:34:29 by anajmi            #+#    #+#             */
+/*   Updated: 2022/03/13 19:35:00 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./include/push_swap.h"
+#include "../../include/checker_bonus.h"
 
 void	create_stack(t_stack *stack, int capacity)
 {
@@ -44,24 +44,4 @@ void	fill_in(t_stack *stack, int ac, char *av[])
 		stack->a[i] = ft_atoi(av[ac]);
 		i++;
 	}
-}
-
-int	main(int ac, char *av[])
-{
-	t_stack	*stack;
-
-	if (ac <= 2 || !arg_check(ac, av))
-	{
-		ft_putendl_fd("Error", 2);
-		exit(0);
-	}
-	stack = (t_stack *)malloc(sizeof(t_stack));
-	if (!stack)
-		return (0);
-	create_stack(stack, ac);
-	fill_in(stack, ac, av);
-	get_the_sorted_list(stack);
-	if (!sort_check(stack))
-		choose_sorting(stack);
-	return (0);
 }

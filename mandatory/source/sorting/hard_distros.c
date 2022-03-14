@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:43:48 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/10 15:52:46 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/14 15:01:20 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	sorting_3(t_stack *stack)
 		&& stack->a[0] < stack->a[1])
 		rra(stack);
 	else if (stack->a[2] > stack->a[1] && stack->a[2] < stack->a[0]
-		&& stack->a[0] < stack->a[1])
+		&& stack->a[0] > stack->a[1])
 		sa(stack);
 	else if (stack->a[2] > stack->a[1] && stack->a[2] > stack->a[0]
 		&& stack->a[0] < stack->a[1])

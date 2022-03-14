@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 16:24:33 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/12 15:54:05 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/13 16:04:38 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ void	push_by_section_up(t_stack *stack)
 	int	l;
 	int	m;
 
-	i = 0;
-	k = stack->size_a % stack->msect;
-	while (i < stack->lsect)
+	i = -1;
+	k = stack->size_a;
+	while (++i < stack->lsect)
 	{
 		j = 0;
 		l = stack->sorted[get_n_section(stack, i + 1) + k - 1];
@@ -56,7 +56,6 @@ void	push_by_section_up(t_stack *stack)
 			else
 				choose_1rb_2rb(stack, l, m);
 		}
-		i++;
 	}
 }
 

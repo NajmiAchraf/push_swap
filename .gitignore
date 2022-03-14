@@ -3,6 +3,8 @@
 **/*.o
 Libft/libft.a
 push_swap
+checker
 push_swap_visualizer
+push_swap_tester
 push_swap_test
 source/show.c
