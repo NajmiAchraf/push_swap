@@ -6,7 +6,7 @@
 #    By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/01 18:11:09 by anajmi            #+#    #+#              #
-#    Updated: 2022/03/14 16:04:13 by anajmi           ###   ########.fr        #
+#    Updated: 2022/03/14 16:10:09 by anajmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,7 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	@$(ALLIBFT)
 	@gcc $(OBJ) $(ARLIB) -o $(NAME)
-	@echo "$(C_GREEN)[LIBRARY CREATED!]$(C_RES)"
+	@echo "$(C_GREEN)[MANDATORY CREATED!]$(C_RES)"
 
 bonus : $(BNM)
 
