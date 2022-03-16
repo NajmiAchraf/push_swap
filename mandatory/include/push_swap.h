@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 21:22:26 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/13 16:55:37 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/15 23:44:49 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_stack
 	int	*a;
 	int	*b;
 	int	*sorted;
+	int	*hard_sorted;
 }				t_stack;
 
 void	create_stack(t_stack *stack, int capacity);
@@ -54,11 +55,12 @@ int		swap_b(t_stack *stack);
 int		swap_ab(t_stack *stack);
 void	swaping(t_stack *stack);
 
-void	get_the_sorted_list(t_stack *stack);
+int		*get_the_sorted_list(t_stack *stack);
 
 void	sorting_2(t_stack *stack);
 void	sorting_3(t_stack *stack);
 void	sorting_4(t_stack *stack);
+void	sorting_up(t_stack *stack);
 void	sorting_5_50(t_stack *stack);
 void	sorting_51_350(t_stack *stack);
 void	sorting_351(t_stack *stack);
@@ -71,11 +73,14 @@ int		get_n_section(t_stack *stack, int i);
 void	three_sort(t_stack *stack);
 void	five_three_sort(t_stack *stack);
 
-int		choose_1ra_2ra(t_stack *stack, int tofindlow, int tofindmax);
-void	push_by_section_down(t_stack *stack);
+int		choose_by_section_1ra_2ra(t_stack *stack, int min, int max);
+void	push_by_section_down(t_stack *stack, int *sorted_list);
 void	push_by_section_fly(t_stack *stack);
-int		choose_1rb_2rb(t_stack *stack, int tofindlow, int tofindmax);
+int		choose_by_section_1rb_2rb(t_stack *stack, int min, int max);
 void	push_by_section_up(t_stack *stack);
 void	hard_sort(t_stack *stack);
+
+void	push_by_two_sections_down(t_stack *stack);
+void	push_one_by_one_directly(t_stack *stack);
 
 #endif

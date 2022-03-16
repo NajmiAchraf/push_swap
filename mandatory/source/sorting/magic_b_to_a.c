@@ -6,13 +6,13 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 16:24:33 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/13 16:04:38 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/16 15:07:38 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-int	choose_1rb_2rb(t_stack *stack, int tofindlow, int tofindmax)
+int	choose_by_section_1rb_2rb(t_stack *stack, int min, int max)
 {
 	int	i;
 	int	j;
@@ -21,9 +21,9 @@ int	choose_1rb_2rb(t_stack *stack, int tofindlow, int tofindmax)
 	j = stack->last_b - 1;
 	while (i < stack->size_b / 2 || stack->size_b / 2 < j)
 	{
-		if (tofindlow <= stack->b[j] && stack->b[j] <= tofindmax)
+		if (min <= stack->b[j] && stack->b[j] <= max)
 			return (rb(stack));
-		else if (tofindlow <= stack->b[i] && stack->b[i] <= tofindmax)
+		else if (min <= stack->b[i] && stack->b[i] <= max)
 			return (rrb(stack));
 		i++;
 		j--;
@@ -54,8 +54,50 @@ void	push_by_section_up(t_stack *stack)
 				j++;
 			}
 			else
-				choose_1rb_2rb(stack, l, m);
+				choose_by_section_1rb_2rb(stack, l, m);
 		}
+	}
+}
+
+int	choose_one_by_one_1rb_2rb(t_stack *stack, int nbr)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = stack->last_b - 1;
+	while (i < (stack->size_b / 2) || (stack->size_b / 2) < j)
+	{
+		if (stack->b[j] == nbr)
+			return (rb(stack));
+		else if (stack->b[i] == nbr)
+			return (rrb(stack));
+		i++;
+		j--;
+	}
+	return (0);
+}
+
+void	push_one_by_one_directly(t_stack *stack)
+{
+	int	i;
+	int	sa;
+	int	sb;
+	int	nbr;
+
+	i = 0;
+	sa = stack->size_a;
+	sb = stack->size_b;
+	while (i < sb)
+	{
+		nbr = stack->sorted[i + sa];
+		if (stack->b[stack->last_b] == nbr)
+		{
+			pa(stack);
+			i++;
+		}
+		else
+			choose_one_by_one_1rb_2rb(stack, nbr);
 	}
 }
 

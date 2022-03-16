@@ -6,29 +6,31 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:29:47 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/12 16:01:26 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/15 20:15:05 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	get_the_sorted_list(t_stack *stack)
+int	*get_the_sorted_list(t_stack *stack)
 {
 	int	i;
+	int	*sorted;
 
-	stack->sorted = (int *)malloc(stack->capacity * sizeof(int *));
+	sorted = (int *)malloc(stack->size_a * sizeof(int *));
 	i = -1;
 	while (++i < stack->size_a)
-		stack->sorted[i] = stack->a[i];
+		sorted[i] = stack->a[i];
 	i = -1;
 	while (++i < stack->last_a)
 	{
-		if (stack->sorted[i] < stack->sorted[i + 1])
+		if (sorted[i] < sorted[i + 1])
 		{
-			swap(&stack->sorted[i], &stack->sorted[i + 1]);
+			swap(&sorted[i], &sorted[i + 1]);
 			i = -1;
 		}
 	}
+	return (sorted);
 }
 
 void	first_sort(t_stack *stack)

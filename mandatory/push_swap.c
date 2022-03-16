@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 16:43:05 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/14 15:03:23 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/15 20:12:36 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	main(int ac, char *av[])
 		return (0);
 	create_stack(stack, ac);
 	fill_in(stack, ac, av);
-	get_the_sorted_list(stack);
+	stack->sorted = get_the_sorted_list(stack);
 	if (!sort_check(stack))
 		choose_sorting(stack);
 	return (0);

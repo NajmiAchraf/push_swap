@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 21:22:51 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/14 15:07:30 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/14 19:56:48 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@ static int	check_digit(int ac, char **av)
 		j = 0;
 		while (av[i][j])
 		{
-			if (j == 0)
+			if (j == 0 && (av[i][0] == '-' || av[i][0] == '+'))
 			{
-				if ((av[i][0] == '-' || av[i][0] == '+')
-					&& !ft_isdigit(av[i][1]))
+				if (!ft_isdigit(av[i][1]))
 					return (0);
 			}
 			else
