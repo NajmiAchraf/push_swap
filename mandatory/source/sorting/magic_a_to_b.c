@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 16:24:33 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/17 00:29:49 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/18 00:37:51 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	push_by_two_sections_down(t_stack *stack)
 	}
 }
 
-int	choose_by_section_1ra_2ra(t_stack *stack, int min, int max)
+int	choose_by_section_ra_rra(t_stack *stack, int min, int max)
 {
 	int	i;
 	int	j;
@@ -134,7 +134,7 @@ void	push_by_section_down(t_stack *stack, int *sorted_list)
 				j++;
 			}
 			else
-				choose_by_section_1ra_2ra(stack, l, m);
+				choose_by_section_ra_rra(stack, l, m);
 		}
 		i--;
 	}
@@ -174,7 +174,7 @@ void	push_by_section_fly(t_stack *stack)
 				j++;
 			}
 			else
-				choose_by_section_1ra_2ra(stack, l, m);
+				choose_by_section_ra_rra(stack, l, m);
 		}
 		i--;
 	}
