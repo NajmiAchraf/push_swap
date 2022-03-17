@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 16:43:05 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/13 19:39:36 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/16 20:39:23 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,27 +20,27 @@ static void	xite(void)
 
 static int	action(t_stack *stack, char *str)
 {
-	if (!ft_strncmp(str, "sa", 2))
+	if (!ft_strncmp(str, "sa", ft_strlen(str) - 1))
 		return (sa(stack));
-	else if (!ft_strncmp(str, "sb", 2))
+	else if (!ft_strncmp(str, "sb", ft_strlen(str) - 1))
 		return (sb(stack));
-	else if (!ft_strncmp(str, "ss", 2))
+	else if (!ft_strncmp(str, "ss", ft_strlen(str) - 1))
 		return (ss(stack));
-	else if (!ft_strncmp(str, "pa", 2))
+	else if (!ft_strncmp(str, "pa", ft_strlen(str) - 1))
 		return (pa(stack));
-	else if (!ft_strncmp(str, "pb", 2))
+	else if (!ft_strncmp(str, "pb", ft_strlen(str) - 1))
 		return (pb(stack));
-	else if (!ft_strncmp(str, "ra", 2))
+	else if (!ft_strncmp(str, "ra", ft_strlen(str) - 1))
 		return (ra(stack));
-	else if (!ft_strncmp(str, "rb", 2))
+	else if (!ft_strncmp(str, "rb", ft_strlen(str) - 1))
 		return (rb(stack));
-	else if (!ft_strncmp(str, "rra", 3))
+	else if (!ft_strncmp(str, "rra", ft_strlen(str) - 1))
 		return (rra(stack));
-	else if (!ft_strncmp(str, "rrb", 3))
+	else if (!ft_strncmp(str, "rrb", ft_strlen(str) - 1))
 		return (rrb(stack));
-	else if (!ft_strncmp(str, "rrr", 3))
+	else if (!ft_strncmp(str, "rrr", ft_strlen(str) - 1))
 		return (rrr(stack));
-	else if (!ft_strncmp(str, "rr", 2))
+	else if (!ft_strncmp(str, "rr", ft_strlen(str) - 1))
 		return (rr(stack));
 	xite();
 	return (0);
@@ -65,7 +65,7 @@ int	main(int ac, char *av[])
 	t_stack	*stack;
 
 	if (ac <= 1)
-		exit(0);
+		return (0);
 	if (!arg_check(ac, av))
 		xite();
 	stack = (t_stack *)malloc(sizeof(t_stack));
@@ -74,7 +74,7 @@ int	main(int ac, char *av[])
 	create_stack(stack, ac);
 	fill_in(stack, ac, av);
 	core(stack);
-	if ((stack->size_a == stack->capacity && sort_check(stack))
+	if ((stack->size_b == 0 && sort_check(stack))
 		|| stack->size_a == 1)
 		ft_putendl_fd("OK", 1);
 	else

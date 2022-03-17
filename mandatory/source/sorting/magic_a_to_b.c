@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 16:24:33 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/15 23:47:52 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/17 00:29:49 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ void	push_by_two_sections_down(t_stack *stack)
 				if (ld <= stack->a[stack->last_a] && stack->a[stack->last_a] <= md)
 				{
 					pb(stack);
+					// swap_b(stack);
 					j1++;
 				}
 				if (lu <= stack->a[stack->last_a] && stack->a[stack->last_a] <= mu && n != i)

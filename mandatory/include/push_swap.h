@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 21:22:26 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/15 23:44:49 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/16 23:14:33 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,7 @@ void	hard_sort(t_stack *stack);
 
 void	push_by_two_sections_down(t_stack *stack);
 void	push_one_by_one_directly(t_stack *stack);
+void	push_two_by_two_directly(t_stack *stack);
+void	push_one_by_one_imp_directly(t_stack *stack);
 
 #endif
