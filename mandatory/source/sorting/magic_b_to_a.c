@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 16:24:33 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/18 00:33:01 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/18 01:23:39 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	push_one_by_one_directly(t_stack *stack)
 		}
 		else if (stack->size_a > 0 && stack->size_b != 0
 			&& ((j == -1 && stack->b[stack->last_b] < stack->a[0])
-			|| (j > -1 && stack->b[stack->last_b] > stack->a[0])))
+				|| (j > -1 && stack->b[stack->last_b] > stack->a[0])))
 		{
 			pa(stack);
 			ra(stack);
@@ -70,53 +70,6 @@ void	push_one_by_one_directly(t_stack *stack)
 	}
 }
 
-int	choose_by_section_1rb_2rb(t_stack *stack, int min, int max)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = stack->last_b - 1;
-	while (i < stack->size_b / 2 || stack->size_b / 2 < j)
-	{
-		if (min <= stack->b[j] && stack->b[j] <= max)
-			return (rb(stack));
-		else if (min <= stack->b[i] && stack->b[i] <= max)
-			return (rrb(stack));
-		i++;
-		j--;
-	}
-	return (0);
-}
-
-void	push_by_section_up(t_stack *stack)
-{
-	int	i;
-	int	j;
-	int	k;
-	int	l;
-	int	m;
-
-	i = -1;
-	k = stack->size_a;
-	while (++i < stack->lsect)
-	{
-		j = 0;
-		l = stack->sorted[get_n_section(stack, i + 1) + k - 1];
-		m = stack->sorted[get_n_section(stack, i) + k];
-		while (j < stack->msect)
-		{
-			if (l <= stack->b[stack->last_b] && stack->b[stack->last_b] <= m)
-			{
-				pa(stack);
-				j++;
-			}
-			else
-				choose_by_section_1rb_2rb(stack, l, m);
-		}
-	}
-}
-
 void	three_sort(t_stack *stack)
 {
 	swap_b(stack);
@@ -125,42 +78,4 @@ void	three_sort(t_stack *stack)
 	pa(stack);
 	swap_a(stack);
 	pa(stack);
-}
-
-static void	core_b_to_a(t_stack *stack, int max, int min, int i)
-{
-	rrb(stack);
-	if (max == stack->b[stack->last_b])
-		pa(stack);
-	if (min == stack->b[stack->last_b])
-	{
-		pa(stack);
-		ra(stack);
-	}
-	if (max == stack->b[stack->last_b])
-		pa(stack);
-	three_sort(stack);
-	if (i != stack->lsect - 1)
-		rrr(stack);
-	else
-		rra(stack);
-}
-
-void	five_three_sort(t_stack *stack)
-{
-	int	i;
-	int	j;
-	int	l;
-	int	m;
-
-	i = 0;
-	j = stack->capacity % stack->msect;
-	rrb(stack);
-	while (i < stack->lsect)
-	{
-		l = stack->sorted[get_n_section(stack, i + 1) + j - 1];
-		m = stack->sorted[get_n_section(stack, i) + j];
-		core_b_to_a(stack, m, l, i);
-		i++;
-	}
 }

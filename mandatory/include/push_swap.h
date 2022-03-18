@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 21:22:26 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/18 00:37:12 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/18 03:54:35 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,20 @@ typedef struct s_stack
 	int	*sorted;
 	int	*hard_sorted;
 }				t_stack;
+
+typedef struct s_var
+{
+	int	minup;
+	int	maxup;
+	int	mindown;
+	int	maxdown;
+	int	s1;
+	int	s2;
+	int	i;
+	int	j;
+	int	k;
+
+}				t_var;
 
 void	create_stack(t_stack *stack, int capacity);
 void	fill_in(t_stack *stack, int ac, char *av[]);
@@ -61,6 +75,7 @@ void	sorting_2(t_stack *stack);
 void	sorting_3(t_stack *stack);
 void	sorting_4(t_stack *stack);
 void	sorting_up(t_stack *stack);
+void	hard_sort(t_stack *stack);
 void	sorting_5_50(t_stack *stack);
 void	sorting_51_350(t_stack *stack);
 void	sorting_351(t_stack *stack);
@@ -70,19 +85,18 @@ void	choose_sorting(t_stack *stack);
 
 int		get_section(t_stack *stack, int size);
 int		get_n_section(t_stack *stack, int i);
+
 void	three_sort(t_stack *stack);
-void	five_three_sort(t_stack *stack);
+
+int		choose_by_two_sections_ra_rra(t_stack *stack, int minup, \
+		int maxup, int mindown, int maxdown);
+// int		choose_by_two_sections_ra_rra(t_stack *stack, t_var *v);
+void	push_by_two_sections_down(t_stack *stack);
+
+int		choose_one_by_one_rb_rrb(t_stack *stack, int nbr);
+void	push_one_by_one_directly(t_stack *stack);
 
 int		choose_by_section_ra_rra(t_stack *stack, int min, int max);
 void	push_by_section_down(t_stack *stack, int *sorted_list);
-void	push_by_section_fly(t_stack *stack);
-
-int		choose_by_section_1rb_2rb(t_stack *stack, int min, int max);
-void	push_by_section_up(t_stack *stack);
-void	hard_sort(t_stack *stack);
-
-void	push_by_two_sections_down(t_stack *stack);
-int		choose_one_by_one_rb_rrb(t_stack *stack, int nbr);
-void	push_one_by_one_directly(t_stack *stack);
 
 #endif

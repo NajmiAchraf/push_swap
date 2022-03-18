@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 21:22:51 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/14 19:59:43 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/18 03:23:56 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,14 +100,13 @@ int	sort_check(t_stack *stack)
 {
 	int	i;
 
-	if (stack->size_a <= 1)
-		return (0);
-	i = stack->size_a;
+	i = stack->capacity - 1;
 	while (i > 0)
 	{
-		if (stack->a[i] > stack->a[i - 1])
+		if (stack->a[i] < stack->a[i - 1])
+			i--;
+		else
 			return (0);
-		i--;
 	}
 	return (1);
 }

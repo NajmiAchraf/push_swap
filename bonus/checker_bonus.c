@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 16:43:05 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/16 20:39:23 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/18 03:22:18 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,7 @@ int	main(int ac, char *av[])
 	create_stack(stack, ac);
 	fill_in(stack, ac, av);
 	core(stack);
-	if ((stack->size_b == 0 && sort_check(stack))
-		|| stack->size_a == 1)
+	if (stack->size_a == stack->capacity && sort_check(stack))
 		ft_putendl_fd("OK", 1);
 	else
 		ft_putendl_fd("KO", 1);
