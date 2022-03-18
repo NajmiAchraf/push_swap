@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 21:22:26 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/18 04:16:18 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/18 19:10:08 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ typedef struct s_var
 	int	maxup;
 	int	mindown;
 	int	maxdown;
+	int	nbr;
+	int	sa;
+	int	sb;
 	int	s1;
 	int	s2;
 	int	i;
@@ -76,9 +79,11 @@ void	sorting_3(t_stack *stack);
 void	sorting_4(t_stack *stack);
 void	sorting_up(t_stack *stack);
 void	hard_sort(t_stack *stack);
+
 void	sorting_5_50(t_stack *stack);
 void	sorting_51_350(t_stack *stack);
 void	sorting_351(t_stack *stack);
+
 void	first_sort(t_stack *stack);
 void	second_sort(t_stack *stack);
 void	choose_sorting(t_stack *stack);
@@ -86,17 +91,15 @@ void	choose_sorting(t_stack *stack);
 int		get_section(t_stack *stack, int size);
 int		get_n_section(t_stack *stack, int i);
 
-void	three_sort(t_stack *stack);
-
-// int		choose_by_two_sections_ra_rra(t_stack *stack, int minup, \
-// 		int maxup, int mindown, int maxdown);
 int		choose_by_two_sections_ra_rra(t_stack *stack, t_var *v);
 void	push_by_two_sections_down(t_stack *stack);
 
-int		choose_one_by_one_rb_rrb(t_stack *stack, int nbr);
-void	push_one_by_one_directly(t_stack *stack);
-
 int		choose_by_section_ra_rra(t_stack *stack, int min, int max);
 void	push_by_section_down(t_stack *stack, int *sorted_list);
+
+void	three_sort(t_stack *stack);
+
+int		choose_one_by_one_rb_rrb(t_stack *stack, int nbr);
+void	push_one_by_one_directly(t_stack *stack);
 
 #endif

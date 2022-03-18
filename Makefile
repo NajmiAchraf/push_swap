@@ -6,7 +6,7 @@
 #    By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/01 18:11:09 by anajmi            #+#    #+#              #
-#    Updated: 2022/03/14 18:58:01 by anajmi           ###   ########.fr        #
+#    Updated: 2022/03/18 19:08:01 by anajmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ MFL = \
 		./mandatory/source/basic/swap.c					\
 		./mandatory/source/check/checking.c				\
 		./mandatory/source/sorting/hard_distros.c		\
-		./mandatory/source/sorting/magic_a_to_b.c		\
+		./mandatory/source/sorting/magic_a_to_b_0.c		\
+		./mandatory/source/sorting/magic_a_to_b_1.c		\
 		./mandatory/source/sorting/magic_b_to_a.c		\
 		./mandatory/source/sorting/magic_distros.c		\
 		./mandatory/source/sorting/magic_tools.c		\

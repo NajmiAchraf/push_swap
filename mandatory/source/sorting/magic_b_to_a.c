@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 16:24:33 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/18 01:23:39 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/18 19:17:48 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,42 +31,43 @@ int	choose_one_by_one_rb_rrb(t_stack *stack, int nbr)
 	return (0);
 }
 
+static void	core_push_directly(t_stack *stack, t_var *v)
+{
+	if (stack->b[stack->last_b] == v->nbr)
+	{
+		pa(stack);
+		v->i++;
+	}
+	else if (stack->size_a > 0 && stack->size_b != 0
+		&& ((v->j == -1 && stack->b[stack->last_b] < stack->a[0])
+			|| (v->j > -1 && stack->b[stack->last_b] > stack->a[0])))
+	{
+		pa(stack);
+		ra(stack);
+		v->j++;
+	}
+	else if (stack->a[0] == v->nbr)
+	{
+		rra(stack);
+		v->i++;
+		v->j--;
+	}
+	else
+		choose_one_by_one_rb_rrb(stack, v->nbr);
+}
+
 void	push_one_by_one_directly(t_stack *stack)
 {
-	int	i;
-	int	j;
-	int	sa;
-	int	sb;
-	int	nbr;
+	t_var	v;
 
-	i = 0;
-	j = -1;
-	sa = stack->size_a;
-	sb = stack->size_b;
-	while (i < sb)
+	v.i = 0;
+	v.j = -1;
+	v.sa = stack->size_a;
+	v.sb = stack->size_b;
+	while (v.i < v.sb)
 	{
-		nbr = stack->sorted[i + sa];
-		if (stack->b[stack->last_b] == nbr)
-		{
-			pa(stack);
-			i++;
-		}
-		else if (stack->size_a > 0 && stack->size_b != 0
-			&& ((j == -1 && stack->b[stack->last_b] < stack->a[0])
-				|| (j > -1 && stack->b[stack->last_b] > stack->a[0])))
-		{
-			pa(stack);
-			ra(stack);
-			j++;
-		}
-		else if (stack->a[0] == nbr)
-		{
-			rra(stack);
-			i++;
-			j--;
-		}
-		else
-			choose_one_by_one_rb_rrb(stack, nbr);
+		v.nbr = stack->sorted[v.i + v.sa];
+		core_push_directly(stack, &v);
 	}
 }
 

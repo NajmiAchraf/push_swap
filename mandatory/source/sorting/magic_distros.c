@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:43:48 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/18 00:54:15 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/18 19:02:06 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,6 @@ void	sorting_51_350(t_stack *stack)
 	push_by_two_sections_down(stack);
 	hard_sort(stack);
 	push_one_by_one_directly(stack);
-}
-
-void	restore_all(t_stack *stack)
-{
-	int	i;
-	int	j;
-
-	i = stack->size_b;
-	while (i > 0)
-	{
-		pa(stack);
-		i--;
-	}
 }
 
 void	sorting_351(t_stack *stack)
