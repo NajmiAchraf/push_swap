@@ -6,13 +6,13 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 16:24:33 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/18 03:54:54 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/18 04:52:16 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-int	choose_by_two_sections_ra_rra(t_stack *stack, int minup, int maxup, \
+/* int	choose_by_two_sections_ra_rra(t_stack *stack, int minup, int maxup, \
 		int mindown, int maxdown)
 {
 	int	i;
@@ -91,9 +91,51 @@ void	push_by_two_sections_down(t_stack *stack)
 		n--;
 	}
 }
+ */
 
+void core2(t_stack *stack, t_var *v)
+{
+	if ((v->mindown <= stack->a[stack->last_a] && stack->a[stack->last_a] <= v->maxdown)
+		|| (v->minup <= stack->a[stack->last_a] && stack->a[stack->last_a] <= v->maxup))
+	{
+		if (v->mindown <= stack->a[stack->last_a] && stack->a[stack->last_a] <= v->maxdown)
+		{
+			pb(stack);
+			v->i++;
+		}
+		if (v->minup <= stack->a[stack->last_a] && stack->a[stack->last_a] <= v->maxup && v->s1 != v->s2)
+		{
+			pb(stack);
+			rb(stack);
+			v->j++;
+		}
+	}
+	else
+		choose_by_two_sections_ra_rra(stack, v);
+}
 
-/* int	choose_by_two_sections_ra_rra(t_stack *stack, t_var *v)
+void core1(t_stack *stack, t_var *v)
+{
+	while (v->s2 >= 0)
+	{
+		v->i = 0;
+		v->j = 0;
+		v->minup = stack->sorted[get_n_section(stack, v->s1 + 1) + v->k - 1];
+		v->maxup = stack->sorted[get_n_section(stack, v->s1) + v->k];
+		v->mindown = stack->sorted[get_n_section(stack, v->s2 + 1) + v->k - 1];
+		v->maxdown = stack->sorted[get_n_section(stack, v->s2) + v->k];
+		if (v->s1 == v->s2)
+			v->j = stack->msect;
+		while (v->i < stack->msect || v->j < stack->msect)
+		{
+			core2(stack, v);
+		}
+		v->s1++;
+		v->s2--;
+	}
+}
+
+int	choose_by_two_sections_ra_rra(t_stack *stack, t_var *v)
 {
 	int	i;
 	int	j;
@@ -116,54 +158,71 @@ void	push_by_two_sections_down(t_stack *stack)
 
 void	push_by_two_sections_down(t_stack *stack)
 {
-	t_var	*v;
+	t_var	v;
 
-	v->k = stack->capacity % stack->msect;
+	v.k = stack->capacity % stack->msect;
 	if (stack->lsect % 2 == 0)
 	{
-		v->s1 = (stack->lsect) / 2;
-		v->s2 = (stack->lsect) / 2 - 1;
+		v.s1 = (stack->lsect) / 2;
+		v.s2 = (stack->lsect) / 2 - 1;
 	}
 	else if (stack->lsect % 2 != 0)
 	{
-		v->s1 = (stack->lsect) / 2;
-		v->s2 = v->s1;
+		v.s1 = (stack->lsect) / 2;
+		v.s2 = v.s1;
 	}
-	while (v->s2 >= 0)
+	core1(stack, &v);
+}
+void	push_by_two_sections_down_save(t_stack *stack)
+{
+	t_var	v;
+
+	v.k = stack->capacity % stack->msect;
+	if (stack->lsect % 2 == 0)
 	{
-		v->i = 0;
-		v->j = 0;
-		v->minup = stack->sorted[get_n_section(stack, v->s1 + 1) + v->k - 1];
-		v->maxup = stack->sorted[get_n_section(stack, v->s1) + v->k];
-		v->mindown = stack->sorted[get_n_section(stack, v->s2 + 1) + v->k - 1];
-		v->maxdown = stack->sorted[get_n_section(stack, v->s2) + v->k];
-		if (v->s1 == v->s2)
-			v->j = stack->msect;
-		while (v->i < stack->msect || v->j < stack->msect)
+		v.s1 = (stack->lsect) / 2;
+		v.s2 = (stack->lsect) / 2 - 1;
+	}
+	else if (stack->lsect % 2 != 0)
+	{
+		v.s1 = (stack->lsect) / 2;
+		v.s2 = v.s1;
+	}
+	while (v.s2 >= 0)
+	{
+		v.i = 0;
+		v.j = 0;
+		v.minup = stack->sorted[get_n_section(stack, v.s1 + 1) + v.k - 1];
+		v.maxup = stack->sorted[get_n_section(stack, v.s1) + v.k];
+		v.mindown = stack->sorted[get_n_section(stack, v.s2 + 1) + v.k - 1];
+		v.maxdown = stack->sorted[get_n_section(stack, v.s2) + v.k];
+		if (v.s1 == v.s2)
+			v.j = stack->msect;
+		while (v.i < stack->msect || v.j < stack->msect)
 		{
-			if ((v->mindown <= stack->a[stack->last_a] && stack->a[stack->last_a] <= v->mindown)
-				|| (v->minup <= stack->a[stack->last_a] && stack->a[stack->last_a] <= v->maxup))
+			if ((v.mindown <= stack->a[stack->last_a] && stack->a[stack->last_a] <= v.maxdown)
+				|| (v.minup <= stack->a[stack->last_a] && stack->a[stack->last_a] <= v.maxup))
 			{
-				if (v->mindown <= stack->a[stack->last_a] && stack->a[stack->last_a] <= v->mindown)
+				if (v.mindown <= stack->a[stack->last_a] && stack->a[stack->last_a] <= v.maxdown)
 				{
 					pb(stack);
-					v->i++;
+					v.i++;
 				}
-				if (v->minup <= stack->a[stack->last_a] && stack->a[stack->last_a] <= v->maxup && v->s1 != v->s2)
+				if (v.minup <= stack->a[stack->last_a] && stack->a[stack->last_a] <= v.maxup && v.s1 != v.s2)
 				{
 					pb(stack);
 					rb(stack);
-					v->j++;
+					v.j++;
 				}
 			}
 			else
-				choose_by_two_sections_ra_rra(stack, v);
+				choose_by_two_sections_ra_rra(stack, &v);
 		}
-		v->s1++;
-		v->s2--;
+		v.s1++;
+		v.s2--;
 	}
 }
- */
+
 int	choose_by_section_ra_rra(t_stack *stack, int min, int max)
 {
 	int	i;

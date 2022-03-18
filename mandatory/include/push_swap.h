@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 21:22:26 by anajmi            #+#    #+#             */
-/*   Updated: 2022/03/18 03:54:35 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/03/18 04:16:18 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,9 +88,9 @@ int		get_n_section(t_stack *stack, int i);
 
 void	three_sort(t_stack *stack);
 
-int		choose_by_two_sections_ra_rra(t_stack *stack, int minup, \
-		int maxup, int mindown, int maxdown);
-// int		choose_by_two_sections_ra_rra(t_stack *stack, t_var *v);
+// int		choose_by_two_sections_ra_rra(t_stack *stack, int minup, \
+// 		int maxup, int mindown, int maxdown);
+int		choose_by_two_sections_ra_rra(t_stack *stack, t_var *v);
 void	push_by_two_sections_down(t_stack *stack);
 
 int		choose_one_by_one_rb_rrb(t_stack *stack, int nbr);
