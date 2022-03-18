@@ -4,6 +4,7 @@
 Libft/libft.a
 push_swap
 checker
+checker_Mac
 push_swap_visualizer
 push_swap_tester
 push_swap_test
