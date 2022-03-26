@@ -6,7 +6,7 @@
 #    By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/01 18:11:09 by anajmi            #+#    #+#              #
-#    Updated: 2022/03/18 19:08:01 by anajmi           ###   ########.fr        #
+#    Updated: 2022/03/20 18:08:09 by anajmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ C_RES = \033[0m
 .PHONY : all clean fclean re bonus
 
 %.o: %.c
-	@gcc $(FLAGS) -c $^ -o $@
+	@gcc $(CFLAGS) -c $^ -o $@
 
 all : $(NAME)
 
